@@ -5,21 +5,23 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) {
         try {
-            PersonaDAO personaDAO = new PersonaDAOImpl();
-            PersonaService personaService = new PersonaService(personaDAO);
+
+
+            PersonaDAOImpl personaDaoImpl=new PersonaDAOImpl();
+            Persona p1=new Persona("Sebastian",39804501);
 
             // Agregar una nueva persona
-            personaService.agregarPersona("Juan Pérez", 12345678);
+            personaDaoImpl.guardar(p1);
 
             // Obtener persona por DNI
-            Persona persona = personaService.obtenerPersonaPorDni(12345678);
-            System.out.println("Persona obtenida: " + persona.getNombre());
-
-            // Actualizar persona
-            personaService.actualizarPersona("Juan Carlos Pérez", 12345678);
+           personaDaoImpl.obtenerPorDni(39804501);
+           
+           // Actualizar persona
+            personaDaoImpl.actualizar(p1);
+            
 
             // Eliminar persona
-            personaService.eliminarPersona(12345678);
+            //personaDaoImpl.eliminar(39804501);
 
         } catch (SQLException e) {
             e.printStackTrace();

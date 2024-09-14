@@ -8,15 +8,16 @@ import java.sql.SQLException;
 
 //Esta clase es la encargada de hacer las consultas SQL a la base de datos
 //implementando los metodos de la interfaz "PersonaDAO"
+
 public class PersonaDAOImpl implements PersonaDAO{
     private Connection conexion;
 
     //El constructor de la clase se encarga de abrir la conexion con la base de  datos
 
     public PersonaDAOImpl() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/mi_base_de_datos";
-        String usuario = "mi_usuario";
-        String contrasena = "mi_contrasena";
+        String url = "jdbc:mysql://localhost:3306/arqui_1-3";
+        String usuario = "tester";
+        String contrasena = "password";
         this.conexion = DriverManager.getConnection(url, usuario, contrasena);
     }
 

@@ -1,5 +1,7 @@
 package org.example;
 
+//Esta seria la entidad
+
 public class Persona {
     private String nombre;
     private int dni;
