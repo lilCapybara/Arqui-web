@@ -18,10 +18,10 @@ public class Main {
            
            // Actualizar persona
             personaDaoImpl.actualizar(p1);
-            
+
 
             // Eliminar persona
-            //personaDaoImpl.eliminar(39804501);
+            personaDaoImpl.eliminar(39804501);
 
         } catch (SQLException e) {
             e.printStackTrace();
