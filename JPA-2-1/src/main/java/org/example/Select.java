@@ -1,9 +1,13 @@
 package org.example;
 
+import org.example.Entities.Persona;
+import org.example.Entities.Turno;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 public class Select {
     public static void main(String[]args) {
@@ -20,7 +24,7 @@ public class Select {
         personas.forEach(p -> System.out.println(p));
 */
         //Busco persona por turno asignado
-        Turno t=new Turno(new Timestamp(2024-3-12));
+        Turno t=new Turno(LocalDate.of(2023, 9, 23));
         Persona j=em.find(Persona.class,t);
 
         em.getTransaction().commit();
