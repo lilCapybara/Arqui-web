@@ -26,4 +26,36 @@ public class JugadorDAO {
             e.printStackTrace();
         }
     }
+
+    public boolean deleteJugador(int dni){
+        String query="DELETE FROM Jugador WHERE dni= ?";
+        PreparedStatement ps=null;
+        boolean isDeleted=false;
+
+        try {
+            ps=conexion.prepareStatement(query);
+            ps.setInt(1,dni);
+            int rowsAffected=ps.executeUpdate();
+
+            if (rowsAffected>0){
+                System.out.println("Jugador eliminado exitosaente");
+                isDeleted=true;
+            }else{
+                System.out.println("No se encontro ningun jugador con ese dni");
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if (ps!=null){
+                    ps.close();
+                }
+                conexion.commit();
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+        return isDeleted;
+    }
 }
